@@ -1,34 +1,10 @@
 import request from '../utils/request';
+import API from './urls';
 
-/**
- * 获取所有学生信息
- */
-export const getStudents = () => {
-  return request.get('/api/students');
-};
+export const getStudents = () => request.get(API.STUDENTS);
 
-/**
- * 添加学生
- * @param {Object} student 学生信息
- */
-export const addStudent = (student) => {
-  return request.post('/api/addstu', student);
-};
+export const addStudent = (student) => request.post(API.ADD_STUDENT, student);
 
-/**
- * 更新学生信息
- * @param {number} id 学生ID
- * @param {Object} student 学生信息
- */
-export const updateStudent = (id, student) => {
-  return request.put(`/api/updatestu/${id}`, student);
-};
+export const updateStudent = (id, student) => request.put(API.UPDATE_STUDENT(id), student);
 
-/**
- * 删除学生
- * @param {number} id 学生ID
- */
-export const deleteStudent = (id) => {
-  return request.delete(`/api/delstu/${id}`);
-};
-    
+export const deleteStudent = (id) => request.delete(API.DELETE_STUDENT(id));

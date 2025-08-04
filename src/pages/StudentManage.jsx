@@ -88,7 +88,7 @@ const StudentManage = () => {
 
   return (
     <div style={{ padding: 24 }}>
-      <Card title="学生信息管理系统" bordered={false}>
+      <Card title="学生信息管理系统" variant="none">
         {editingStudent ? (
           <StudentForm
             initialValues={editingStudent}
