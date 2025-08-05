@@ -27,7 +27,7 @@ export default function Register() {
         <Form.Item name="password" label="密码" rules={[{ required: true }]}>
           <Input.Password />
         </Form.Item>
-        <Form.Item name="email" label="邮箱" rules={[{ type: "email" }]}>
+        <Form.Item name="email" label="邮箱" rules={[{ type: "email" },{ required: true }]}>
           <Input />
         </Form.Item>
         <Form.Item name="is_admin" valuePropName="checked">

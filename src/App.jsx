@@ -1,11 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-import { HomeOutlined, BookOutlined, LoginOutlined , UserAddOutlined } from '@ant-design/icons'; // 用 LoginOutlined 更合适
+import { HomeOutlined, BookOutlined, LoginOutlined , UserAddOutlined } from '@ant-design/icons';
 import Home from './pages/Home';
 import StudentManage from './pages/StudentManage';
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ScoreManage from "./pages/ScoreManage";
+import './App.css';   // 引入样式
+
 
 const { Header, Content, Footer } = Layout;
 
@@ -35,30 +38,28 @@ const items = [
 const App = () => {
   return (
     <Router>
-      <Layout style={{ minHeight: '100vh' }}>
-        <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-          <div className="logo" style={{ float: 'left', color: 'white', fontSize: 20, fontWeight: 'bold' }}>
-            学生信息管理系统
-          </div>
+      <Layout className="layout">
+        <Header className="header">
+          <div className="logo">学生信息管理系统</div>
           <Menu
             theme="dark"
             mode="horizontal"
             defaultSelectedKeys={['home']}
-            style={{ lineHeight: '64px' }}
-            items={items}  // 这里改成用 items 属性
+            items={items}
           />
         </Header>
-        <Content style={{ padding: '0 50px', marginTop: 64 }}>
-          <div style={{ background: '#fff', padding: 24, marginTop: 32 }}>
+        <Content className="content">
+          <div className="page-container">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/students" element={<StudentManage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/scores/:id" element={<ScoreManage />} />
             </Routes>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>
+        <Footer className="footer">
           学生信息管理系统 ©{new Date().getFullYear()} Created with React & Gin
         </Footer>
       </Layout>

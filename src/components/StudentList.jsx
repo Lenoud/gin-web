@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Button, Space, Tag, Popconfirm } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';  // ✅ 引入 useNavigate
 
 const StudentList = ({
   students,
@@ -8,6 +9,8 @@ const StudentList = ({
   onDelete,
   loading,
 }) => {
+  const navigate = useNavigate(); // ✅ 获取 navigate
+
   const columns = [
     {
       title: 'ID',
@@ -45,7 +48,7 @@ const StudentList = ({
     {
       title: '操作',
       key: 'action',
-      width: 160,
+      width: 200,
       render: (_, record) => (
         <Space size="middle">
           <Button 
@@ -70,6 +73,12 @@ const StudentList = ({
               删除
             </Button>
           </Popconfirm>
+          <Button 
+            type="link" 
+            onClick={() => navigate(`/scores/${record.id}`)}
+          >
+            成绩
+          </Button>
         </Space>
       ),
     },
