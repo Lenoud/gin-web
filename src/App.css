@@ -1,0 +1,41 @@
+/* 整体布局 */
+.layout {
+    min-height: 100vh;
+  }
+  
+  /* 头部导航 */
+  .header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+  }
+  
+  /* 左上角 logo */
+  .logo {
+    float: left;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* 内容区 */
+  .content {
+    padding: 0 50px;
+    margin-top: 64px;
+  }
+  
+  /* 页面容器 */
+  .page-container {
+    background: #fff;
+    padding: 24px;
+    margin-top: 32px;
+    border-radius: 8px;
+    min-height: 400px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* 页脚 */
+  .footer {
+    text-align: center;
+  }
+  
