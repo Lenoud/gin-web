@@ -1,13 +1,11 @@
+// App.jsx - 项目主入口，负责路由和整体布局
+// 这里定义了页面路由和顶部导航菜单，所有页面都在此注册
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import { HomeOutlined, BookOutlined, LoginOutlined , UserAddOutlined } from '@ant-design/icons';
-import Home from './pages/Home';
-import StudentManage from './pages/StudentManage';
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import ScoreManage from "./pages/ScoreManage";
-import './App.css';   // 引入样式
+import { Home, StudentManage, Login, Register, ScoreManage ,UserManage } from './pages';
+import './styles/App.css';   // 引入样式
 
 
 const { Header, Content, Footer } = Layout;
@@ -33,6 +31,11 @@ const items = [
     key: 'students',
     icon: <BookOutlined />,
   },
+  {
+    label: <Link to="/users">用户管理</Link>,
+    key: 'users',
+    icon: <BookOutlined />,
+  },
 ];
 
 const App = () => {
@@ -52,10 +55,11 @@ const App = () => {
           <div className="page-container">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/students" element={<StudentManage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/students" element={<StudentManage />} />
               <Route path="/scores/:id" element={<ScoreManage />} />
+              <Route path="/users" element={<UserManage />} />
             </Routes>
           </div>
         </Content>
